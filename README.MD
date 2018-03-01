@@ -20,6 +20,7 @@ Well, to keep it simple, here's a few of the most common things you'd expect but
  * Require users to verify their accounts
  * Let users reset their passwords (I know it's sad, but you'll have to hang onto your password here man)
  * Provide notifications of any kind
+ * Safely store and encrypt your data in the database. It's all raw except passwords.
  * Make you coffee
  
 #### Then, what's it for?
