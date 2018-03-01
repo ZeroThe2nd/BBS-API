@@ -47,6 +47,43 @@ class UsersController extends Controller
         return $this->respond(Response::HTTP_CREATED, $user->makeVisible($user->getHidden()));
     }
 
+    public function put(Request $request, $id)
+    {
+        $user = User::query()->find($id);
+        $user->makeVisible("password");
+        $currUser = $this->currentUser($request);
+
+        if (is_null($user)) {
+            return $this->respond(Response::HTTP_NOT_FOUND);
+        }
+
+        if (!((bool)$currUser->is_admin) && !((bool)($m === "App\User" && $user->id === $currUser->id))) {
+            return response()->json(
+                [
+                    'error'   => true,
+                    'message' => "You're not allowed to change this item",
+                ],
+                Response::HTTP_UNAUTHORIZED
+            );
+        }
+
+        $data = array_merge(
+            $user->toArray(),
+            $request->all()
+        );
+
+        if (!is_null($newPassword = $request->get('password'))) {
+            $data['password'] = Hash::make($newPassword);
+        }
+
+        $request->replace($data);
+
+        $this->validate($request, User::$rules);
+        $user->update($request->all());
+
+        return $this->respond(Response::HTTP_OK, $user);
+    }
+
     /**
      * @param Request $request
      *
