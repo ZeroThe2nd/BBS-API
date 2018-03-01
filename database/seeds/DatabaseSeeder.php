@@ -11,6 +11,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
+        DB::table('users')->insert([
+            'username' => "admin",
+            'password' => "admin",
+            'is_admin' => true,
+        ]);
+
+        $userId = (int)DB::getPdo()->lastInsertId();
+
+        DB::table('boards')->insert([
+            'title'       => "Default board",
+            'description' => "Automagically created default board.",
+            'user_id'     => $userId,
+        ]);
+
+        $boardId = (int)DB::getPdo()->lastInsertId();
+
+        DB::table('threads')->insert([
+            'title'    => "Default thread",
+            'board_id' => $boardId,
+            'user_id'  => $userId,
+        ]);
+
+        $threadId = (int)DB::getPdo()->lastInsertId();
+
+        DB::table('posts')->insert([
+            'content'   => "admin",
+            'thread_id' => $threadId,
+            'user_id'   => $userId,
+        ]);
     }
 }

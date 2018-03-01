@@ -1,6 +1,6 @@
 ## BBS JSON-API
 
-#### What does it do?
+### What does it do?
 This project provides the server-side things to run a BBS on, and is based on a JSON api. it includes:
  * Users and Admins
  * Boards
@@ -13,7 +13,7 @@ Users can sign up with a username and password, then retrieve a token that their
 
 By default, users can be created by anyone (including non-registered users), and there is **NO** email authentication for this as of yet. 
 
-#### What does it not do?
+### What does it not do?
 Well, to keep it simple, here's a few of the most common things you'd expect but that it doesn't do:
  * Images or anything else besides text
  * Provide a fancy visual interface
@@ -23,13 +23,13 @@ Well, to keep it simple, here's a few of the most common things you'd expect but
  * Safely store and encrypt your data in the database. It's all raw except passwords.
  * Make you coffee
  
-#### Then, what's it for?
+### Then, what's it for?
 Honestly, it's mostly a fun project for me. But it could be an easy tool to test and practice building REST-based apps on any platform that lets you use a REST api. An example client written in JavaScript will probably be found in one of my repositories later as well.
 
-#### OK, so I want this. How do i use it?
+### OK, so I want this. How do i use it?
 Keep reading pal.
 
-#### Installation
+### Installation
 To install the BBS API, first run `composer install` from the project root directory.
 
 After this process completes, ensure that you have a `.env` in the project root folder. If not, clone `.env.production` or `.env.local` into `.env`.
@@ -43,15 +43,15 @@ To ensure the database has the required tables, and to set up the default admin 
 
 Finally, ensure that your server points to the `\public` folder, not to the root folder of this application.
 
-#### Running locally
+### Running locally
 In the installation process, use `.env.local` and clone this to `.env`. Running the database migrations and database seeds is still required as well, however with the local configuration, the application will store all of its data into the `database\database.sqlite` database.
 
 To start the local test application, run `php -S localhost:8080 -t public` in the project root directory. Keep the console window open, as closing it will kill the local server. The window will also display requested resources from clients. If you've started the application using the above command, you'll be able to access it on [http://localhost:8080](http://localhost:8080). This includes sending requests to it. Loading up the root page should present you with json data that looks like `{'message':'It works!'}`
 
-#### API Documentation
+### API Documentation
 Follows later
 
-#### TODO
+### TODO
  * Make user registration easier to lock down to users or admins only
  * Write API documentation
  * ...

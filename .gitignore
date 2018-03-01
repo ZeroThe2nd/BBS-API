@@ -4,3 +4,4 @@ Homestead.json
 Homestead.yaml
 .env
 notes.txt
+/database/database.sqlite

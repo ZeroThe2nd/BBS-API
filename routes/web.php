@@ -13,8 +13,6 @@
 
 function useRateLimit()
 {
-    return [];
-
     return (env('RATE_LIMIT_ON', false))
         ? ['throttle:' . env('RATE_LIMIT', "60,10")]
         : [];
