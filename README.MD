@@ -1,4 +1,4 @@
-## BBS JSON-API
+# BBS JSON-API
 
 ### What does it do?
 This project provides the server-side things to run a BBS on, and is based on a JSON api. it includes:
