@@ -13,15 +13,13 @@
 
 function useRateLimit()
 {
-    return (env('RATE_LIMIT_ON', false))
-        ? ['throttle:' . env('RATE_LIMIT', "60,10")]
-        : [];
+    return (env('RATE_LIMIT_ON', false)) ? ['throttle:' . env('RATE_LIMIT', "60,10")] : null;
 }
 
 /**
  * @var \Laravel\Lumen\Routing\Router $router
  */
-$router->group(['middleware' => useRateLimit()], function () use ($router) {
+$router->group(['middleware' => [useRateLimit()]], function () use ($router) {
     // Children are throttled, X requests per Y minute(s)
     $router->get('/', function () use ($router) {
         return $router->app->version();

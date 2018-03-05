@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $userId = (int)DB::getPdo()->lastInsertId();
-
         DB::table('boards')->insert([
             'title'       => "Default board",
             'description' => "Automagically created default board.",
@@ -26,7 +25,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $boardId = (int)DB::getPdo()->lastInsertId();
-
         DB::table('threads')->insert([
             'title'    => "Default thread",
             'board_id' => $boardId,
@@ -34,7 +32,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $threadId = (int)DB::getPdo()->lastInsertId();
-
         DB::table('posts')->insert([
             'content'   => "admin",
             'thread_id' => $threadId,
