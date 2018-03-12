@@ -22,6 +22,8 @@ class Post extends Model
         "user_id",
     ];
 
+    protected $with = ['user'];
+
     /** @var array */
     protected $dates = [];
 

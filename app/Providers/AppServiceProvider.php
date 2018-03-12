@@ -13,8 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(\App\Providers\AuthServiceProvider::class);
-        // $this->app->register(\App\Providers\EventServiceProvider::class);
+        $this->app->register(AuthServiceProvider::class);
+        // $this->app->register(EventServiceProvider::class);
 
         // Production-only providers
         if ($this->app->environment() === 'production') {

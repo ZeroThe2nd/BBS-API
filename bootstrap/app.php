@@ -68,6 +68,10 @@ $app->routeMiddleware([
     'throttle' => App\Http\Middleware\ThrottleRequests::class,
 ]);
 
+$app->middleware([
+    App\Http\Middleware\CorsMiddleware::class,
+]);
+
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers

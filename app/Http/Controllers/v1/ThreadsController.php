@@ -23,6 +23,7 @@ class ThreadsController extends Controller
         $thread = Thread::query()->with([
             'user',
             'board',
+            'posts',
         ])->find($id);
 
         if (is_null($thread)) {

@@ -20,7 +20,7 @@ class BoardsController extends Controller
      */
     public function get($id)
     {
-        $board = Board::query()->with(['user'])->find($id);
+        $board = Board::query()->with(['user', 'threads'])->find($id);
 
         if (is_null($board)) {
             return $this->respond(Response::HTTP_NOT_FOUND);
