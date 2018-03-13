@@ -15,9 +15,7 @@
  * @var \Laravel\Lumen\Routing\Router $router
  */
 $router->group([
-    'middleware' => [
-        (env('RATE_LIMIT_ON', false)) ? 'throttle:' . env('RATE_LIMIT', "60,10") : null,
-    ],
+    'middleware' => (env('RATE_LIMIT_ON', false)) ? ['throttle:' . env('RATE_LIMIT', "60,10")] : [],
 ], function () use ($router) {
     // Children are throttled, X requests per Y minute(s)
     $router->get('/', function () use ($router) {

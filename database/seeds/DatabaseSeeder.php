@@ -20,20 +20,20 @@ class DatabaseSeeder extends Seeder
         $userId = (int)DB::getPdo()->lastInsertId();
         DB::table('boards')->insert([
             'title'       => "Default board",
-            'description' => "Automagically created default board.",
+            'description' => "Automagically created test board.",
             'user_id'     => $userId,
         ]);
 
         $boardId = (int)DB::getPdo()->lastInsertId();
         DB::table('threads')->insert([
-            'title'    => "Default thread",
+            'title'    => "This is a test thread.",
             'board_id' => $boardId,
             'user_id'  => $userId,
         ]);
 
         $threadId = (int)DB::getPdo()->lastInsertId();
         DB::table('posts')->insert([
-            'content'   => "admin",
+            'content'   => "This is a test post.",
             'thread_id' => $threadId,
             'user_id'   => $userId,
         ]);
