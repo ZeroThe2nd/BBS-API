@@ -22,14 +22,14 @@ class UsersController extends Controller
      */
     public function add(Request $request)
     {
-        $username = $request->get('username');
+        $username = $request->json()->get('username');
         if (User::query()->where(['username' => $username,])->exists()) {
             return $this->respond(Response::HTTP_NOT_ACCEPTABLE, [
                 'error'   => true,
                 'message' => 'The selected username is taken',
             ]);
         }
-        $password  = Hash::make($request->get('password'));
+        $password  = Hash::make($request->json()->get('password'));
         $api_token = $this->generateApiToken();
 
         $user            = new User;
@@ -57,12 +57,12 @@ class UsersController extends Controller
             return $this->respond(Response::HTTP_NOT_FOUND);
         }
 
-        if (!((bool)$currUser->is_admin) && !((bool)($m === "App\User" && $user->id === $currUser->id))) {
-            return response()->json(
-                [
-                    'error'   => true,
-                    'message' => "You're not allowed to change this item",
-                ],
+        if (!((bool)$currUser->is_admin) && !((bool)($user instanceof User && $user->id === $currUser->id))
+        ) {
+            return response()->json([
+                'error'   => true,
+                'message' => "You're not allowed to change this item",
+            ],
                 Response::HTTP_UNAUTHORIZED
             );
         }

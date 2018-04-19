@@ -32,7 +32,7 @@ class Board extends Model
     ];
 
     /**
-     * Get threads in board
+     * Get threads in threads
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -42,7 +42,7 @@ class Board extends Model
     }
 
     /**
-     * Get parent board
+     * Get parent threads
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int            $board_id
  * @property int            $user_id
  * @property mixed          $posts
- * @property mixed          $board
+ * @property mixed          $threads
  * @property mixed          $user
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -47,7 +47,7 @@ class Thread extends Model
     }
 
     /**
-     * Get parent board
+     * Get parent threads
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -57,7 +57,7 @@ class Thread extends Model
     }
 
     /**
-     * Get parent board
+     * Get parent threads
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

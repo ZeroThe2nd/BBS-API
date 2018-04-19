@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
 
         $userId = (int)DB::getPdo()->lastInsertId();
         DB::table('boards')->insert([
-            'title'       => "Default board",
-            'description' => "Automagically created test board.",
+            'title'       => "Default threads",
+            'description' => "Automagically created test threads.",
             'user_id'     => $userId,
         ]);
 

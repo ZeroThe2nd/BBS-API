@@ -32,11 +32,14 @@ $router->group([
             $router->post('user', 'UsersController@add');
             $router->get('user/token', 'UsersController@getToken');
             $router->put('user/token', 'UsersController@updateToken');
+            $router->get('user/token/verify', function () {
+                return response()->json([], 200);
+            });
 
-            // board
-            $router->get('board', 'BoardsController@all');
-            $router->get('board/{id:[0-9]+}', 'BoardsController@get');
-            $router->get('board/{id:[0-9]+}', 'BoardsController@get');
+            // threads
+            $router->get('threads', 'BoardsController@all');
+            $router->get('threads/{id:[0-9]+}', 'BoardsController@get');
+            $router->get('threads/{id:[0-9]+}', 'BoardsController@get');
 
             // thread
             $router->get('thread', 'ThreadsController@all');
@@ -47,13 +50,8 @@ $router->group([
             $router->get('post/{id:[0-9]+}', 'PostsController@get');
         });
 
+        // These requests require an api_token to be set in basic-auth password,
         $router->group(['middleware' => ['auth:token']], function () use ($router) {
-            // These requests require an api_token to be set in basic-auth password,
-            $router->get('auth', function () {
-                return response()->json([
-                    'message' => "Auth OK",
-                ]);
-            });
             /**
              * Routes for resource user
              */
@@ -62,11 +60,11 @@ $router->group([
             $router->delete('user/{id:[0-9]+}', 'UsersController@remove');
 
             /**
-             * Routes for resource board
+             * Routes for resource threads
              */
-            $router->post('board', 'BoardsController@add');
-            $router->put('board/{id:[0-9]+}', 'BoardsController@put');
-            $router->delete('board/{id:[0-9]+}', 'BoardsController@remove');
+            $router->post('threads', 'BoardsController@add');
+            $router->put('threads/{id:[0-9]+}', 'BoardsController@put');
+            $router->delete('threads/{id:[0-9]+}', 'BoardsController@remove');
 
             /**
              * Routes for resource thread

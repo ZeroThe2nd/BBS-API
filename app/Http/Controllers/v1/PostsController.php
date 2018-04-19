@@ -23,7 +23,7 @@ class PostsController extends Controller
         $post = Post::query()->with([
             'user',
             'thread' => function ($query) {
-                $query->with('board');
+                $query->with('threads');
             },
         ])->find($id);
 

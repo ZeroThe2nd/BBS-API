@@ -57,7 +57,8 @@ class ThrottleRequests
         $response = $next($request);
 
         return $this->addHeaders(
-            $response, $maxAttempts,
+            $response,
+            $maxAttempts,
             $this->calculateRemainingAttempts($key, $maxAttempts)
         );
     }
@@ -120,7 +121,10 @@ class ThrottleRequests
         );
 
         return new HttpException(
-            429, 'Too Many Attempts.', null, $headers
+            429,
+            'Too Many Attempts.',
+            null,
+            $headers
         );
     }
 

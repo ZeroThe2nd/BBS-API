@@ -22,7 +22,7 @@ class ThreadsController extends Controller
     {
         $thread = Thread::query()->with([
             'user',
-            'board',
+            'threads',
             'posts',
         ])->find($id);
 
