@@ -36,10 +36,9 @@ $router->group([
                 return response()->json([], 200);
             });
 
-            // threads
-            $router->get('threads', 'BoardsController@all');
-            $router->get('threads/{id:[0-9]+}', 'BoardsController@get');
-            $router->get('threads/{id:[0-9]+}', 'BoardsController@get');
+            // boards
+            $router->get('board/all', 'BoardsController@all');
+            $router->get('board/{id:[0-9]+}', 'BoardsController@get');
 
             // thread
             $router->get('thread', 'ThreadsController@all');
@@ -62,9 +61,9 @@ $router->group([
             /**
              * Routes for resource threads
              */
-            $router->post('threads', 'BoardsController@add');
-            $router->put('threads/{id:[0-9]+}', 'BoardsController@put');
-            $router->delete('threads/{id:[0-9]+}', 'BoardsController@remove');
+            $router->post('board', 'BoardsController@add');
+            $router->put('board/{id:[0-9]+}', 'BoardsController@put');
+            $router->delete('board/{id:[0-9]+}', 'BoardsController@remove');
 
             /**
              * Routes for resource thread
