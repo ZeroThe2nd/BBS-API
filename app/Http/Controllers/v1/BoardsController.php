@@ -13,6 +13,17 @@ class BoardsController extends Controller
     const MODEL = "App\Board";
     use RESTActions;
 
+    public function all()
+    {
+        $boards = Board::query()->with(['user', 'threads'])->get();
+
+        if (is_null($boards)) {
+            return $this->respond(Response::HTTP_NOT_FOUND);
+        }
+
+        return $this->respond(Response::HTTP_OK, $boards);
+    }
+
     /**
      * @param $id
      *

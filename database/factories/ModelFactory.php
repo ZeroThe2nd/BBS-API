@@ -13,7 +13,7 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'name'  => $faker->name,
         'email' => $faker->email,
     ];
 });
@@ -22,8 +22,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
  * Factory definition for model App\User.
  */
 $factory->define(App\User::class, function ($faker) {
-    return [
-        // Fields here
+    return [// Fields here
     ];
 });
 
@@ -31,8 +30,7 @@ $factory->define(App\User::class, function ($faker) {
  * Factory definition for model App\Board.
  */
 $factory->define(App\Board::class, function ($faker) {
-    return [
-        // Fields here
+    return [// Fields here
     ];
 });
 
@@ -40,8 +38,7 @@ $factory->define(App\Board::class, function ($faker) {
  * Factory definition for model App\Thread.
  */
 $factory->define(App\Thread::class, function ($faker) {
-    return [
-        // Fields here
+    return [// Fields here
     ];
 });
 
@@ -49,7 +46,6 @@ $factory->define(App\Thread::class, function ($faker) {
  * Factory definition for model App\Post.
  */
 $factory->define(App\Post::class, function ($faker) {
-    return [
-        // Fields here
+    return [// Fields here
     ];
 });

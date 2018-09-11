@@ -56,11 +56,7 @@ class ThrottleRequests
 
         $response = $next($request);
 
-        return $this->addHeaders(
-            $response,
-            $maxAttempts,
-            $this->calculateRemainingAttempts($key, $maxAttempts)
-        );
+        return $this->addHeaders($response, $maxAttempts, $this->calculateRemainingAttempts($key, $maxAttempts));
     }
 
     /**
@@ -94,12 +90,7 @@ class ThrottleRequests
      */
     protected function resolveRequestSignature($request)
     {
-        return sha1(
-            $request->method() .
-            '|' . $request->server('SERVER_NAME') .
-            '|' . $request->path() .
-            '|' . $request->ip()
-        );
+        return sha1($request->method() . '|' . $request->server('SERVER_NAME') . '|' . $request->path() . '|' . $request->ip());
     }
 
     /**
@@ -114,18 +105,10 @@ class ThrottleRequests
     {
         $retryAfter = $this->getTimeUntilNextRetry($key);
 
-        $headers = $this->getHeaders(
-            $maxAttempts,
-            $this->calculateRemainingAttempts($key, $maxAttempts, $retryAfter),
-            $retryAfter
-        );
+        $headers = $this->getHeaders($maxAttempts, $this->calculateRemainingAttempts($key, $maxAttempts, $retryAfter),
+            $retryAfter);
 
-        return new HttpException(
-            429,
-            'Too Many Attempts.',
-            null,
-            $headers
-        );
+        return new HttpException(429, 'Too Many Attempts.', null, $headers);
     }
 
     /**
@@ -152,9 +135,7 @@ class ThrottleRequests
      */
     protected function addHeaders(Response $response, $maxAttempts, $remainingAttempts, $retryAfter = null)
     {
-        $response->headers->add(
-            $this->getHeaders($maxAttempts, $remainingAttempts, $retryAfter)
-        );
+        $response->headers->add($this->getHeaders($maxAttempts, $remainingAttempts, $retryAfter));
 
         return $response;
     }

@@ -36,6 +36,11 @@ class Thread extends Model
         "user_id"  => "required|numeric",
     ];
 
+    protected $casts = [
+        'board_id' => 'integer',
+        'user_id'  => 'integer',
+    ];
+
     /**
      * Get posts in thread
      *

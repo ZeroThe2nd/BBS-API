@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
+    use \App\Traits\TokenGenerator;
+
     /**
      * Run the database seeds.
      *
@@ -12,30 +16,33 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'username' => "admin",
-            'password' => "admin",
-            'is_admin' => true,
+            'username'   => "admin",
+            'password'   => Hash::make('admin'),
+            'api_token'  => $this->generateTokenForApi(),
+            'is_admin'   => true,
+            'created_at' => Carbon::now()->getTimestamp(),
         ]);
 
         $userId = (int)DB::getPdo()->lastInsertId();
         DB::table('boards')->insert([
             'title'       => "Default threads",
-            'description' => "Automagically created test threads.",
+            'description' => "Automagically created test board.",
             'user_id'     => $userId,
+            'created_at'  => Carbon::now()->getTimestamp(),
         ]);
 
-        $boardId = (int)DB::getPdo()->lastInsertId();
         DB::table('threads')->insert([
-            'title'    => "This is a test thread.",
-            'board_id' => $boardId,
-            'user_id'  => $userId,
+            'title'      => "Automagically created test thread.",
+            'board_id'   => (int)DB::getPdo()->lastInsertId(),
+            'user_id'    => $userId,
+            'created_at' => Carbon::now()->getTimestamp(),
         ]);
 
-        $threadId = (int)DB::getPdo()->lastInsertId();
         DB::table('posts')->insert([
-            'content'   => "This is a test post.",
-            'thread_id' => $threadId,
-            'user_id'   => $userId,
+            'content'    => "You're probably bored of this, but this is an automagically created test post. Admin, plz fix.",
+            'thread_id'  => (int)DB::getPdo()->lastInsertId(),
+            'user_id'    => $userId,
+            'created_at' => Carbon::now()->getTimestamp(),
         ]);
     }
 }

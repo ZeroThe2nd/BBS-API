@@ -31,6 +31,10 @@ class Board extends Model
         "user_id"     => "required|numeric",
     ];
 
+    protected $casts = [
+        'user_id' => 'integer',
+    ];
+
     /**
      * Get threads in threads
      *

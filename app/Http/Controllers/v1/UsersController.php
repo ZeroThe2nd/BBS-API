@@ -2,8 +2,10 @@
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use App\Traits\TokenGenerator;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 /**
  * Class UsersController
@@ -13,7 +15,9 @@ use Illuminate\Support\Facades\Hash;
 class UsersController extends Controller
 {
     const MODEL = "App\User";
+
     use RESTActions;
+    use TokenGenerator;
 
     /**
      * @param Request $request
@@ -24,13 +28,13 @@ class UsersController extends Controller
     {
         $username = $request->json()->get('username');
         if (User::query()->where(['username' => $username,])->exists()) {
-            return $this->respond(Response::HTTP_NOT_ACCEPTABLE, [
+            return $this->respond(JsonResponse::HTTP_NOT_ACCEPTABLE, [
                 'error'   => true,
                 'message' => 'The selected username is taken',
             ]);
         }
         $password  = Hash::make($request->json()->get('password'));
-        $api_token = $this->generateApiToken();
+        $api_token = $this->generateTokenForApi();
 
         $user            = new User;
         $user->username  = $username;
@@ -38,13 +42,13 @@ class UsersController extends Controller
         $user->api_token = $api_token;
 
         if (!$user->save()) {
-            return $this->respond(Response::HTTP_NOT_ACCEPTABLE, [
+            return $this->respond(JsonResponse::HTTP_NOT_ACCEPTABLE, [
                 'error'   => true,
                 'message' => 'An unknown error occurred',
             ]);
         }
 
-        return $this->respond(Response::HTTP_CREATED, $user->makeVisible($user->getHidden()));
+        return $this->respond(JsonResponse::HTTP_CREATED, $user->makeVisible($user->getHidden()));
     }
 
     public function put(Request $request, $id)
@@ -54,23 +58,17 @@ class UsersController extends Controller
         $currUser = $this->currentUser($request);
 
         if (is_null($user)) {
-            return $this->respond(Response::HTTP_NOT_FOUND);
+            return response()->json(JsonResponse::HTTP_NOT_FOUND);
         }
 
-        if (!((bool)$currUser->is_admin) && !((bool)($user instanceof User && $user->id === $currUser->id))
-        ) {
+        if (!((bool)$currUser->is_admin) && !((bool)($user instanceof User && $user->id === $currUser->id))) {
             return response()->json([
                 'error'   => true,
                 'message' => "You're not allowed to change this item",
-            ],
-                Response::HTTP_UNAUTHORIZED
-            );
+            ], JsonResponse::HTTP_UNAUTHORIZED);
         }
 
-        $data = array_merge(
-            $user->toArray(),
-            $request->all()
-        );
+        $data = array_merge($user->toArray(), $request->all());
 
         if (!is_null($newPassword = $request->get('password'))) {
             $data['password'] = Hash::make($newPassword);
@@ -78,10 +76,15 @@ class UsersController extends Controller
 
         $request->replace($data);
 
-        $this->validate($request, User::$rules);
+        try {
+            $this->validate($request, User::$rules);
+        } catch (ValidationException $e) {
+            return response()->json('Failed validation', JsonResponse::HTTP_BAD_REQUEST);
+        }
+
         $user->update($request->all());
 
-        return $this->respond(Response::HTTP_OK, $user);
+        return $this->respond(JsonResponse::HTTP_OK, $user->makeVisible('updated_at'));
     }
 
     /**
@@ -93,10 +96,13 @@ class UsersController extends Controller
     {
         $user = User::query()->where([
             'api_token' => $this->getRequestToken($request),
-        ])->first();
+        ])->first()->makeVisible([
+            'updated_at',
+            'api_token',
+        ]);
 
         if (!is_null($user)) {
-            return response()->json($user, Response::HTTP_OK);
+            return response()->json($user, JsonResponse::HTTP_OK);
         }
 
         return response()->json([
@@ -121,8 +127,8 @@ class UsersController extends Controller
         $raw  = false;
         if (!is_null($user)) {
             $user->makeVisible($user->getHidden());
-            if (Hash::check($request->getPassword(), $user->password) ||
-                ($raw = $request->getPassword() === $user->password)) {
+            if (Hash::check($request->getPassword(),
+                    $user->password) || ($raw = $request->getPassword() === $user->password)) {
                 $data['api_token'] = $user->api_token;
                 if ($raw) {
                     $data['message'] = 'For security reasons, please update your password';
@@ -132,13 +138,10 @@ class UsersController extends Controller
             }
         }
 
-        return response()->json(
-            [
-                'error'   => true,
-                'message' => "Couldn't find a matching user.",
-            ],
-            Response::HTTP_UNAUTHORIZED
-        );
+        return response()->json([
+            'error'   => true,
+            'message' => "Couldn't find a matching user.",
+        ], JsonResponse::HTTP_UNAUTHORIZED);
     }
 
     /**
@@ -155,9 +158,9 @@ class UsersController extends Controller
         $raw  = false;
         if (!is_null($user)) {
             $user->makeVisible($user->getHidden());
-            if ((Hash::check($request->getPassword(), $user->password)) ||
-                ($raw = ($request->getPassword() === $user->password))) {
-                $user->api_token = $this->generateApiToken();
+            if ((Hash::check($request->getPassword(),
+                    $user->password)) || ($raw = ($request->getPassword() === $user->password))) {
+                $user->api_token = $this->generateTokenForApi();
                 $user->save();
 
                 $data['api_token'] = $user->api_token;
@@ -168,69 +171,9 @@ class UsersController extends Controller
             }
         }
 
-        return response()->json(
-            [
-                'error'   => true,
-                'message' => "Couldn't find a matching user.",
-            ],
-            Response::HTTP_UNAUTHORIZED
-        );
-    }
-
-    /**
-     * Generates a unique API key that does not exist in the database yet.
-     * True on success, null on failure
-     *
-     * @return null|string
-     */
-    private function generateApiToken()
-    {
-        $exists = false;
-        $token  = null;
-        while (!$exists) {
-            $token = $this->generateToken(64);
-            if (is_null($token)) {
-                // Token generator failed
-                return null;
-            }
-            $exists = User::query()->where([
-                'api_token' => $token,
-            ])->exists();
-            if (!$exists) {
-                return $token;
-            }
-        }
-
-        // Couldn't generate an unused api_token
-        return null;
-    }
-
-    /**
-     * Generates a cryptographically safe random string with a given length
-     * Returns `null` on error
-     *
-     * @param int $length
-     *
-     * @return string|null
-     */
-    private function generateToken($length = 64)
-    {
-        $token        = "";
-        $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        $codeAlphabet .= "abcdefghijklmnopqrstuvwxyz";
-        $codeAlphabet .= "0123456789";
-        $max          = strlen($codeAlphabet);
-
-        try {
-            for ($i = 0; $i < $length; $i++) {
-                $token .= $codeAlphabet[random_int(0, $max - 1)];
-            }
-        } catch (\Exception $e) {
-            echo '<pre>' . print_r($e->getMessage(), true) . '</pre>';
-
-            return null;
-        }
-
-        return $token;
+        return response()->json([
+            'error'   => true,
+            'message' => "Couldn't find the user.",
+        ], JsonResponse::HTTP_UNAUTHORIZED);
     }
 }

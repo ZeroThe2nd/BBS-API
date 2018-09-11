@@ -39,9 +39,9 @@ class Authenticate
     {
         if ($this->auth->guard($guard)->guest()) {
             return response()->json([
-                                        'error'   => true,
-                                        'message' => 'Invalid token',
-                                    ], 401);
+                'error'   => true,
+                'message' => 'Invalid token',
+            ], 401);
         }
 
         return $next($request);

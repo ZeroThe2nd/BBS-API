@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
  */
 trait RESTActions
 {
+
     use CommonFunctions;
 
     /**
@@ -89,21 +90,15 @@ trait RESTActions
         $currUserIsUser  = (bool)($m === "App\User" && $model->id === $user->id);
 
         if (!$currUserIsOwner && !$currUserIsAdmin && !$currUserIsUser) {
-            return response()->json(
-                [
-                    'error'   => true,
-                    'message' => "You're not allowed to change this item",
-                ],
-                Response::HTTP_UNAUTHORIZED
-            );
+            return response()->json([
+                'error'   => true,
+                'message' => "You're not allowed to change this item",
+            ], Response::HTTP_UNAUTHORIZED);
         }
 
-        $request->replace(
-            array_merge(
-                $model->toArray(), // Get current model
-                $request->all() // Merge request data into the model
-            )
-        );
+        $request->replace(array_merge($model->toArray(), // Get current model
+            $request->all() // Merge request data into the model
+        ));
 
         $this->validate($request, $m::$rules);
         $model->update($request->all());
@@ -137,5 +132,4 @@ trait RESTActions
     {
         return response()->json($data, $status);
     }
-
 }

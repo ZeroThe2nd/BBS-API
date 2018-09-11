@@ -62,8 +62,8 @@ trait CommonFunctions
             $user = User::query()->where('username', $request->getUser())->first();
             if (!is_null($user)) {
                 $user->makeVisible('password');
-                if ((Hash::check($request->getPassword(), $user->password)) ||
-                    ($request->getPassword() === $user->password)) {
+                if ((Hash::check($request->getPassword(),
+                        $user->password)) || ($request->getPassword() === $user->password)) {
                     return $user;
                 }
             }

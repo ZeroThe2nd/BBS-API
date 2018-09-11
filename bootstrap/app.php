@@ -19,12 +19,9 @@ try {
 |
 */
 
-$app = new Laravel\Lumen\Application(
-    realpath(__DIR__ . '/../')
-);
+$app = new Laravel\Lumen\Application(realpath(__DIR__ . '/../'));
 
 $app->withFacades();
-
 $app->withEloquent();
 
 /*
@@ -38,15 +35,8 @@ $app->withEloquent();
 |
 */
 
-$app->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
-);
-
-$app->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    App\Console\Kernel::class
-);
+$app->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, App\Exceptions\Handler::class);
+$app->singleton(Illuminate\Contracts\Console\Kernel::class, App\Console\Kernel::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -59,15 +49,13 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
-
+// Route middleware
 $app->routeMiddleware([
     'auth'     => App\Http\Middleware\Authenticate::class,
     'throttle' => App\Http\Middleware\ThrottleRequests::class,
 ]);
 
+// Global middleware
 $app->middleware([
     App\Http\Middleware\CorsMiddleware::class,
 ]);
@@ -99,7 +87,8 @@ $app->register(App\Providers\AppServiceProvider::class);
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {
-    require __DIR__ . '/../routes/web.php';
+    require __DIR__ . '/../routes/api.php';
+    require __DIR__ . '/../routes/v1.php';
 });
 
 return $app;

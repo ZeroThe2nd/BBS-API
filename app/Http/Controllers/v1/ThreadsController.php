@@ -13,6 +13,17 @@ class ThreadsController extends Controller
     const MODEL = "App\Thread";
     use RESTActions;
 
+    public function all()
+    {
+        $threads = Thread::query()->with(['user', 'board'])->get();
+
+        if (is_null($threads)) {
+            return $this->respond(Response::HTTP_NOT_FOUND);
+        }
+
+        return $this->respond(Response::HTTP_OK, $threads);
+    }
+
     /**
      * @param $id
      *

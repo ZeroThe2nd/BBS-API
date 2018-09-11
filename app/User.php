@@ -16,6 +16,7 @@ use \Illuminate\Database\Eloquent\SoftDeletes;
  */
 class User extends Model
 {
+
     use SoftDeletes;
 
     /**
@@ -38,8 +39,12 @@ class User extends Model
 
     /** @var array */
     public static $rules = [
-        "username" => "required|string",
-        "password" => "required|string",
+        "username" => "required|string|filled|unique:users,username",
+        "password" => "required|string|filled",
+    ];
+
+    protected $casts = [
+        'is_admin' => 'boolean',
     ];
 
     /**

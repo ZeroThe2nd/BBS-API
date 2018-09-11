@@ -33,6 +33,11 @@ class Post extends Model
         "thread_id" => "required|numeric",
     ];
 
+    protected $casts = [
+        'user_id'   => 'integer',
+        'thread_id' => 'integer',
+    ];
+
     /**
      * Get the associated user
      *
