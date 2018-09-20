@@ -15,7 +15,7 @@ class ThreadsController extends Controller
 
     public function all()
     {
-        $threads = Thread::query()->with(['user', 'board'])->get();
+        $threads = Thread::query()->with(['created_by', 'updated_by', 'board'])->get();
 
         if (is_null($threads)) {
             return $this->respond(Response::HTTP_NOT_FOUND);
@@ -32,8 +32,8 @@ class ThreadsController extends Controller
     public function get($id)
     {
         $thread = Thread::query()->with([
-            'user',
-            'threads',
+            'created_by',
+            'updated_by',
             'posts',
         ])->find($id);
 

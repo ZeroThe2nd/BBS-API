@@ -14,8 +14,12 @@ class CreateBoardsTable extends Migration
                 $table->increments('id');
                 $table->string('title', 128);
                 $table->string('description', 255)->nullable();
-                $table->integer('user_id')->unsigned();
-                $table->foreign('user_id')->references('id')->on('users');
+                $table->integer('created_by')->unsigned();
+                $table->foreign('created_by')->references('id')->on('users');
+                $table->integer('updated_by')->unsigned()->nullable();
+                $table->foreign('updated_by')->references('id')->on('users');
+                $table->integer('deleted_by')->unsigned()->nullable();
+                $table->foreign('deleted_by')->references('id')->on('users');
                 // Constraints declaration
                 $table->timestamps();
                 $table->softDeletes();

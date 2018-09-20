@@ -16,8 +16,12 @@ class CreateThreadsTable extends Migration
                 $table->string('title', 128);
                 $table->integer('board_id')->unsigned();
                 $table->foreign('board_id')->references('id')->on('boards');
-                $table->integer('user_id')->unsigned();
-                $table->foreign('user_id')->references('id')->on('users');
+                $table->integer('created_by')->unsigned();
+                $table->foreign('created_by')->references('id')->on('users');
+                $table->integer('updated_by')->unsigned()->nullable();
+                $table->foreign('updated_by')->references('id')->on('users');
+                $table->integer('deleted_by')->unsigned()->nullable();
+                $table->foreign('deleted_by')->references('id')->on('users');
                 // Constraints declaration
                 $table->timestamps();
                 $table->softDeletes();

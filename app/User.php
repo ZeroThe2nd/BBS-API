@@ -28,6 +28,10 @@ class User extends Model
         'avatar',
     ];
 
+    protected $with = [
+        'updated_by',
+    ];
+
     /** @var array */
     protected $hidden = [
         'password',
@@ -71,5 +75,15 @@ class User extends Model
     public function posts()
     {
         return $this->hasMany("App\Post");
+    }
+
+    public function updated_by()
+    {
+        return $this->belongsTo('App\User', 'updated_by', 'id');
+    }
+
+    public function deleted_by()
+    {
+        return $this->belongsTo('App\User', 'deleted_by', 'id');
     }
 }

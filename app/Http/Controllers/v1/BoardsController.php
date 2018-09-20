@@ -15,7 +15,7 @@ class BoardsController extends Controller
 
     public function all()
     {
-        $boards = Board::query()->with(['user', 'threads'])->get();
+        $boards = Board::query()->with(['created_by', 'updated_by', 'threads'])->get();
 
         if (is_null($boards)) {
             return $this->respond(Response::HTTP_NOT_FOUND);
@@ -31,7 +31,7 @@ class BoardsController extends Controller
      */
     public function get($id)
     {
-        $board = Board::query()->with(['user', 'threads'])->find($id);
+        $board = Board::query()->with(['created_by', 'updated_by', 'threads'])->find($id);
 
         if (is_null($board)) {
             return $this->respond(Response::HTTP_NOT_FOUND);

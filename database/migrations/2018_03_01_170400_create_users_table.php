@@ -18,6 +18,10 @@ class CreateUsersTable extends Migration
                 $table->string('avatar', 255)->nullable();
                 $table->string('api_token', 64)->unique()->nullable();
                 $table->boolean('is_admin')->default(false);
+                $table->integer('updated_by')->unsigned()->nullable();
+                $table->foreign('updated_by')->references('id')->on('users');
+                $table->integer('deleted_by')->unsigned()->nullable();
+                $table->foreign('deleted_by')->references('id')->on('users');
                 // Constraints declaration
                 $table->softDeletes();
                 $table->timestamps();

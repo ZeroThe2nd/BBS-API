@@ -16,8 +16,12 @@ class CreatePostsTable extends Migration
                 $table->text('content');
                 $table->integer('thread_id')->unsigned();
                 $table->foreign('thread_id')->references('id')->on('threads');
-                $table->integer('user_id')->unsigned();
-                $table->foreign('user_id')->references('id')->on('users');
+                $table->integer('created_by')->unsigned();
+                $table->foreign('created_by')->references('id')->on('users');
+                $table->integer('updated_by')->unsigned()->nullable();
+                $table->foreign('updated_by')->references('id')->on('users');
+                $table->integer('deleted_by')->unsigned()->nullable();
+                $table->foreign('deleted_by')->references('id')->on('users');
                 // Constraints declaration
                 $table->timestamps();
                 $table->softDeletes();

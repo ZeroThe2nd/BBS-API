@@ -18,7 +18,13 @@ class Board extends Model
     protected $fillable = [
         "title",
         "description",
-        "user_id",
+    ];
+
+    protected $casts = [
+        "id"   => "integer",
+        "created_by" => "integer",
+        "updated_by" => "integer",
+        "deleted_by" => "integer",
     ];
 
     /** @var array */
@@ -28,11 +34,7 @@ class Board extends Model
     public static $rules = [
         "title"       => "required|string",
         "description" => "required|string",
-        "user_id"     => "required|numeric",
-    ];
-
-    protected $casts = [
-        'user_id' => 'integer',
+        "created_by"  => "required|numeric",
     ];
 
     /**
@@ -42,7 +44,7 @@ class Board extends Model
      */
     public function threads()
     {
-        return $this->hasMany("App\Thread");
+        return $this->hasMany("App\Thread")->with(['created_by', 'updated_by']);
     }
 
     /**
@@ -50,8 +52,18 @@ class Board extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function created_by()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'created_by', 'id');
+    }
+
+    public function updated_by()
+    {
+        return $this->belongsTo('App\User', 'updated_by', 'id');
+    }
+
+    public function deleted_by()
+    {
+        return $this->belongsTo('App\User', 'deleted_by', 'id');
     }
 }

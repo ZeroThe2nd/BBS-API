@@ -21,10 +21,8 @@ class PostsController extends Controller
     public function get($id)
     {
         $post = Post::query()->with([
-            'user',
-            'thread' => function ($query) {
-                $query->with('threads');
-            },
+            'created_by',
+            'updated_by',
         ])->find($id);
 
         if (is_null($post)) {

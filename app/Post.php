@@ -22,20 +22,22 @@ class Post extends Model
         "user_id",
     ];
 
-    protected $with = ['user'];
+    protected $casts = [
+        "id"         => "integer",
+        "thread_id"  => "integer",
+        "created_by" => "integer",
+        "updated_by" => "integer",
+        "deleted_by" => "integer",
+    ];
 
     /** @var array */
     protected $dates = [];
 
     /** @var array */
     public static $rules = [
-        "content"   => "required|string",
-        "thread_id" => "required|numeric",
-    ];
-
-    protected $casts = [
-        'user_id'   => 'integer',
-        'thread_id' => 'integer',
+        "content"    => "required|string",
+        "thread_id"  => "required|numeric",
+        "created_by" => "required|integer",
     ];
 
     /**
@@ -43,9 +45,19 @@ class Post extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function created_by()
     {
-        return $this->belongsTo("App\User");
+        return $this->belongsTo('App\User', 'created_by', 'id');
+    }
+
+    public function updated_by()
+    {
+        return $this->belongsTo('App\User', 'updated_by', 'id');
+    }
+
+    public function deleted_by()
+    {
+        return $this->belongsTo('App\User', 'deleted_by', 'id');
     }
 
     /**
@@ -55,6 +67,6 @@ class Post extends Model
      */
     public function thread()
     {
-        return $this->belongsTo('App\Thread');
+        return $this->belongsTo('App\Thread', 'thread_id', 'id');
     }
 }

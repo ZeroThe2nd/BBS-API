@@ -35,7 +35,10 @@ trait RESTActions
     public function get($id)
     {
         $m     = self::MODEL;
-        $model = $m::find($id);
+        $model = $m::find($id)->with([
+            'created_by',
+            'updated_by',
+        ]);
         if (is_null($model)) {
             return $this->respond(Response::HTTP_NOT_FOUND);
         }
@@ -56,12 +59,18 @@ trait RESTActions
 
         if (!is_null($user)) {
             // Add or override the user_id with the currently logged in user
-            $request->merge(['user_id' => (int)$user->id]);
+            $request->merge([
+                'created_by' => (int)$user->id,
+                'updated_by' => (int)$user->id,
+            ]);
         } else {
+            throw new \Exception('User object empty');
             // Forcibly remove the user_id if the user is not set
-            $data = $request->all();
-            unset($data['user_id']);
-            $request->replace($data);
+            // FIXME WHY?!
+
+            // $data = $request->all();
+            // unset($data['user_id']);
+            // $request->replace($data);
         }
 
         $this->validate($request, $m::$rules);
@@ -85,9 +94,9 @@ trait RESTActions
             return $this->respond(Response::HTTP_NOT_FOUND);
         }
 
-        $currUserIsOwner = (bool)(isset($model->user_id) && (int)$model->user_id === (int)$user->id);
+        $currUserIsOwner = (bool)(isset($model->created_by) && (int)$model->created_by === (int)$user->id);
         $currUserIsAdmin = (bool)$user->is_admin;
-        $currUserIsUser  = (bool)($m === "App\User" && $model->id === $user->id);
+        $currUserIsUser  = (bool)($m === "App\User" && $model->id === $user->id); // TODO Check if this still works
 
         if (!$currUserIsOwner && !$currUserIsAdmin && !$currUserIsUser) {
             return response()->json([
@@ -96,9 +105,15 @@ trait RESTActions
             ], Response::HTTP_UNAUTHORIZED);
         }
 
+        //        echo '<pre>' . print_r($model->toArray(), true) . '</pre>';die();
+
         $request->replace(array_merge($model->toArray(), // Get current model
-            $request->all() // Merge request data into the model
-        ));
+                $request->all(), // Merge request data into the model
+                [
+
+                    'updated_by' => $user->id,
+                ] // Add the current user id as updated_by
+            ));
 
         $this->validate($request, $m::$rules);
         $model->update($request->all());
