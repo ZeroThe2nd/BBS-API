@@ -108,12 +108,12 @@ trait RESTActions
         //        echo '<pre>' . print_r($model->toArray(), true) . '</pre>';die();
 
         $request->replace(array_merge($model->toArray(), // Get current model
-                $request->all(), // Merge request data into the model
-                [
+            $request->all(), // Merge request data into the model
+            [
 
-                    'updated_by' => $user->id,
-                ] // Add the current user id as updated_by
-            ));
+                'updated_by' => $user->id,
+            ] // Add the current user id as updated_by
+        ));
 
         $this->validate($request, $m::$rules);
         $model->update($request->all());

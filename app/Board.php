@@ -21,7 +21,7 @@ class Board extends Model
     ];
 
     protected $casts = [
-        "id"   => "integer",
+        "id"         => "integer",
         "created_by" => "integer",
         "updated_by" => "integer",
         "deleted_by" => "integer",

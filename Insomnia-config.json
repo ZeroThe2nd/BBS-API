@@ -1,770 +1,770 @@
 {
-  "_type"           : "export",
-  "__export_format" : 3,
-  "__export_date"   : "2018-03-02T15:41:21.507Z",
-  "__export_source" : "insomnia.desktop.app:v5.12.4",
-  "resources"       : [
-    {
-      "_id"         : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
-      "created"     : 1519211544986,
-      "description" : "",
-      "modified"    : 1519211544986,
-      "name"        : "BBS-API",
-      "parentId"    : null,
-      "_type"       : "workspace"
-    },
-    {
-      "_id"       : "env_6b9a6e7de7c04275bfeefcb780ae969e",
-      "color"     : null,
-      "created"   : 1519211545108,
-      "data"      : {},
-      "isPrivate" : false,
-      "modified"  : 1519211763687,
-      "name"      : "Local",
-      "parentId"  : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
-      "_type"     : "environment"
-    },
-    {
-      "_id"      : "jar_44b87ec982d1485e8cd64519b917cf4f",
-      "cookies"  : [],
-      "created"  : 1519211545117,
-      "modified" : 1519211545117,
-      "name"     : "Default Jar",
-      "parentId" : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
-      "_type"    : "cookie_jar"
-    },
-    {
-      "_id"         : "fld_8e4648d3b94a4c74a411a4fa150665ff",
-      "created"     : 1519755434694,
-      "description" : "",
-      "environment" : {},
-      "metaSortKey" : -1519755434694,
-      "modified"    : 1519755434694,
-      "name"        : "/user",
-      "parentId"    : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
-      "_type"       : "request_group"
-    },
-    {
-      "_id"         : "fld_0fb971eeccb343aa896c8af355b5f833",
-      "created"     : 1519902835157,
-      "description" : "",
-      "environment" : {},
-      "metaSortKey" : -1519755434644,
-      "modified"    : 1519902838644,
-      "name"        : "/board",
-      "parentId"    : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
-      "_type"       : "request_group"
-    },
-    {
-      "_id"         : "fld_24ab7e3fde174bb4990ca2f97559c89f",
-      "created"     : 1519902845222,
-      "description" : "",
-      "environment" : {},
-      "metaSortKey" : -1519755434594,
-      "modified"    : 1519902847589,
-      "name"        : "/thread",
-      "parentId"    : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
-      "_type"       : "request_group"
-    },
-    {
-      "_id"         : "fld_959a5bb6d5c247fb9530614daef18ee8",
-      "created"     : 1519902853836,
-      "description" : "",
-      "environment" : {},
-      "metaSortKey" : -1519755434544,
-      "modified"    : 1519902863522,
-      "name"        : "/post",
-      "parentId"    : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
-      "_type"       : "request_group"
-    },
-    {
-      "_id"                             : "req_ea675053ce054c5ea21e2ee792f24a84",
-      "authentication"                  : {},
-      "body"                            : {},
-      "created"                         : 1519211642667,
-      "description"                     : "",
-      "headers"                         : [
+    "_type"           : "export",
+    "__export_format" : 3,
+    "__export_date"   : "2018-03-02T15:41:21.507Z",
+    "__export_source" : "insomnia.desktop.app:v5.12.4",
+    "resources"       : [
         {
-          "id"    : "pair_4c7cbd053ed04e91a0e175f8aee9a3ad",
-          "name"  : "Accept",
-          "value" : "application/json"
+            "_id"         : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
+            "created"     : 1519211544986,
+            "description" : "",
+            "modified"    : 1519211544986,
+            "name"        : "BBS-API",
+            "parentId"    : null,
+            "_type"       : "workspace"
         },
         {
-          "id"    : "pair_597cc9a25fb444e281f7cc94ec5bd6dd",
-          "name"  : "Content-Type",
-          "value" : "application/json"
-        }
-      ],
-      "metaSortKey"                     : -1519829134950.5,
-      "method"                          : "GET",
-      "modified"                        : 1519933890084,
-      "name"                            : "Lumen Version",
-      "parameters"                      : [],
-      "parentId"                        : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url }}/",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_b545bde7a85f46f8a78d8aa50d7365e4",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "VLBllNoR6jmcd3dgoL0OCx4iw0aYIXNHMBc2Zf4nexjncI5zAJIsNT3si3j2sW27",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {},
-      "created"                         : 1519903410373,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519903410373,
-      "method"                          : "GET",
-      "modified"                        : 1519903571922,
-      "name"                            : "Auth test",
-      "parameters"                      : [],
-      "parentId"                        : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/auth",
-      "_type"                           : "request"
-    },
-    {
-      "_id"       : "env_8eecef5b54104a96be7ed6a89f086cde",
-      "color"     : "#4d36a8",
-      "created"   : 1519211660852,
-      "data"      : {
-        "api_token_admin" : "",
-        "api_token_user"  : "",
-        "api_url"         : "http://localhost:8080",
-        "api_version"     : "v1"
-      },
-      "isPrivate" : false,
-      "modified"  : 1519947371987,
-      "name"      : "Local testing",
-      "parentId"  : "env_6b9a6e7de7c04275bfeefcb780ae969e",
-      "_type"     : "environment"
-    },
-    {
-      "_id"                             : "req_c1297143eaae4deca2db962d170ac14c",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {
-        "mimeType" : "application/json",
-        "text"     : "{\n\t\"username\" : \"user\",\n\t\"password\" : \"user\"\n}"
-      },
-      "created"                         : 1519754031679,
-      "description"                     : "",
-      "headers"                         : [
+            "_id"       : "env_6b9a6e7de7c04275bfeefcb780ae969e",
+            "color"     : null,
+            "created"   : 1519211545108,
+            "data"      : {},
+            "isPrivate" : false,
+            "modified"  : 1519211763687,
+            "name"      : "Local",
+            "parentId"  : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
+            "_type"     : "environment"
+        },
         {
-          "id"    : "pair_dc63cb2d8875458e860446b07724dc84",
-          "name"  : "Content-Type",
-          "value" : "application/json"
-        }
-      ],
-      "metaSortKey"                     : -1519755420961.75,
-      "method"                          : "POST",
-      "modified"                        : 1519927126715,
-      "name"                            : "Create user",
-      "parameters"                      : [],
-      "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/user",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_c2abd13354794e4d98f61a7de2d2d938",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "admin",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {},
-      "created"                         : 1519754842346,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519755420986.75,
-      "method"                          : "GET",
-      "modified"                        : 1520005118398,
-      "name"                            : "Get user by id",
-      "parameters"                      : [],
-      "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/v1/user/1",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_e837df0237624f1f9e602fecf3984e45",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "lZNzzAZdXkpMJQYdbdJMmZccxiDOmuoCTYA3unWl5BL5qgSz6wMOYK7bA6I4VYqP",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {
-        "mimeType" : "application/json",
-        "text"     : "{\n\t\"password\" : \"admin\"\n}"
-      },
-      "created"                         : 1519754876008,
-      "description"                     : "",
-      "headers"                         : [
+            "_id"      : "jar_44b87ec982d1485e8cd64519b917cf4f",
+            "cookies"  : [],
+            "created"  : 1519211545117,
+            "modified" : 1519211545117,
+            "name"     : "Default Jar",
+            "parentId" : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
+            "_type"    : "cookie_jar"
+        },
         {
-          "id"    : "pair_bdf7f4a912b14c4d8eaff1ccfc150f0a",
-          "name"  : "Content-Type",
-          "value" : "application/json"
-        }
-      ],
-      "metaSortKey"                     : -1519755420936.75,
-      "method"                          : "PUT",
-      "modified"                        : 1519942121204,
-      "name"                            : "Update user",
-      "parameters"                      : [],
-      "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/user/1",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_26860c6d14364805b5f3f0c5d6fc138c",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "admin",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {},
-      "created"                         : 1519755380065,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519755421036.75,
-      "method"                          : "GET",
-      "modified"                        : 1519769772352,
-      "name"                            : "Get users",
-      "parameters"                      : [],
-      "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/user",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_dc61efa6da994de9b96f703b6e1f5971",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "{{ api_token_admin  }}",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {},
-      "created"                         : 1519755465806,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519755420886.75,
-      "method"                          : "DELETE",
-      "modified"                        : 1519904622172,
-      "name"                            : "Delete user",
-      "parameters"                      : [],
-      "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/user/1",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_0c536785f7094bef87c207be5b118b04",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "{{ api_token_admin  }}",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {},
-      "created"                         : 1519771099802,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519771099802,
-      "method"                          : "GET",
-      "modified"                        : 1519904640030,
-      "name"                            : "Authed user",
-      "parameters"                      : [],
-      "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/user/current",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_e0db304e341d43c791f81a973f27fdbc",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "admin",
-        "type"     : "basic",
-        "username" : "admin"
-      },
-      "body"                            : {},
-      "created"                         : 1519772826537,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519772826537,
-      "method"                          : "GET",
-      "modified"                        : 1519902898976,
-      "name"                            : "Get user Token by credentials",
-      "parameters"                      : [],
-      "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/user/token",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_6ae29b2511d940c8ad327c620004b48f",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "user",
-        "type"     : "basic",
-        "username" : "user"
-      },
-      "body"                            : {},
-      "created"                         : 1519902970941,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519771963169.5,
-      "method"                          : "PUT",
-      "modified"                        : 1520005149372,
-      "name"                            : "Update Token with credentials",
-      "parameters"                      : [],
-      "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/user/token",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_8e2127290f9a4619adee1c028270b8fc",
-      "authentication"                  : {},
-      "body"                            : {},
-      "created"                         : 1519903631533,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519903631533,
-      "method"                          : "GET",
-      "modified"                        : 1519907923638,
-      "name"                            : "Get boards",
-      "parameters"                      : [],
-      "parentId"                        : "fld_0fb971eeccb343aa896c8af355b5f833",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/board",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_625dc4e394d249c78a2a8e456a52077e",
-      "authentication"                  : {},
-      "body"                            : {},
-      "created"                         : 1519903671458,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519903520953,
-      "method"                          : "GET",
-      "modified"                        : 1519903685602,
-      "name"                            : "Get board by id",
-      "parameters"                      : [],
-      "parentId"                        : "fld_0fb971eeccb343aa896c8af355b5f833",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/board/1",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_9752b9eff78a406fb75d42cf5d4762db",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "{{ api_token_admin  }}",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {
-        "mimeType" : "application/json",
-        "text"     : "{\n    \"title\" : \"Test board 2\",\n\t\"description\" : \"Just an API-created test\"\n}"
-      },
-      "created"                         : 1519903742489,
-      "description"                     : "",
-      "headers"                         : [
+            "_id"         : "fld_8e4648d3b94a4c74a411a4fa150665ff",
+            "created"     : 1519755434694,
+            "description" : "",
+            "environment" : {},
+            "metaSortKey" : -1519755434694,
+            "modified"    : 1519755434694,
+            "name"        : "/user",
+            "parentId"    : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
+            "_type"       : "request_group"
+        },
         {
-          "id"    : "pair_9e3c379a38a14ee1932afc3cebd47ad2",
-          "name"  : "Content-Type",
-          "value" : "application/json"
-        }
-      ],
-      "metaSortKey"                     : -1519903520903,
-      "method"                          : "POST",
-      "modified"                        : 1519923609353,
-      "name"                            : "Add board",
-      "parameters"                      : [],
-      "parentId"                        : "fld_0fb971eeccb343aa896c8af355b5f833",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/board",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_1aa9944c67ba46fc86b324f19b2a84e6",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "{{ api_token_admin  }}",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {
-        "mimeType" : "application/json",
-        "text"     : "{\n    \"title\" : \"Test board!\",\n\t\"description\" : \"Just an API-created test\"\n}"
-      },
-      "created"                         : 1519906667257,
-      "description"                     : "",
-      "headers"                         : [
+            "_id"         : "fld_0fb971eeccb343aa896c8af355b5f833",
+            "created"     : 1519902835157,
+            "description" : "",
+            "environment" : {},
+            "metaSortKey" : -1519755434644,
+            "modified"    : 1519902838644,
+            "name"        : "/board",
+            "parentId"    : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
+            "_type"       : "request_group"
+        },
         {
-          "id"    : "pair_48d5aa030fb148de85cd3f8c9d336284",
-          "name"  : "Content-Type",
-          "value" : "application/json"
-        }
-      ],
-      "metaSortKey"                     : -1519903520878,
-      "method"                          : "PUT",
-      "modified"                        : 1519907221197,
-      "name"                            : "Update board",
-      "parameters"                      : [],
-      "parentId"                        : "fld_0fb971eeccb343aa896c8af355b5f833",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/board/2",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_20ae558edd60467e9a5491bbc130be58",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "{{ api_token_admin  }}",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {},
-      "created"                         : 1519907158320,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519903520853,
-      "method"                          : "DELETE",
-      "modified"                        : 1519907187480,
-      "name"                            : "Delete board",
-      "parameters"                      : [],
-      "parentId"                        : "fld_0fb971eeccb343aa896c8af355b5f833",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/board/1",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_96412369770442158915f06833cd871e",
-      "authentication"                  : {},
-      "body"                            : {},
-      "created"                         : 1519908598887,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519908598887,
-      "method"                          : "GET",
-      "modified"                        : 1519908615609,
-      "name"                            : "Get threads",
-      "parameters"                      : [],
-      "parentId"                        : "fld_24ab7e3fde174bb4990ca2f97559c89f",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/thread",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_c19c41d37ab649caa6f13b7386322fbc",
-      "authentication"                  : {},
-      "body"                            : {},
-      "created"                         : 1519908617614,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519906115210,
-      "method"                          : "GET",
-      "modified"                        : 1519908625090,
-      "name"                            : "Get thread by id",
-      "parameters"                      : [],
-      "parentId"                        : "fld_24ab7e3fde174bb4990ca2f97559c89f",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/thread/1",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_d82527a8638f4eddb3dec3410b24bf00",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "{{ api_token_admin  }}",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {
-        "mimeType" : "application/json",
-        "text"     : "{\n\t\"title\" : \"thread title\",\n\t\"board_id\" : 2\n}"
-      },
-      "created"                         : 1519908640749,
-      "description"                     : "",
-      "headers"                         : [
+            "_id"         : "fld_24ab7e3fde174bb4990ca2f97559c89f",
+            "created"     : 1519902845222,
+            "description" : "",
+            "environment" : {},
+            "metaSortKey" : -1519755434594,
+            "modified"    : 1519902847589,
+            "name"        : "/thread",
+            "parentId"    : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
+            "_type"       : "request_group"
+        },
         {
-          "id"    : "pair_91206dfc3bdb4979b3c25ee0bd0f8043",
-          "name"  : "Content-Type",
-          "value" : "application/json"
-        }
-      ],
-      "metaSortKey"                     : -1519906115160,
-      "method"                          : "POST",
-      "modified"                        : 1519910560925,
-      "name"                            : "Add thread",
-      "parameters"                      : [],
-      "parentId"                        : "fld_24ab7e3fde174bb4990ca2f97559c89f",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/thread",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_c19a6aebff114ecc8cb8c82d82597978",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "{{ api_token_admin  }}",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {
-        "mimeType" : "application/json",
-        "text"     : "{\n\t\"title\" : \"thread title\",\n\t\"board_id\" : 2\n}"
-      },
-      "created"                         : 1519910200212,
-      "description"                     : "",
-      "headers"                         : [
+            "_id"         : "fld_959a5bb6d5c247fb9530614daef18ee8",
+            "created"     : 1519902853836,
+            "description" : "",
+            "environment" : {},
+            "metaSortKey" : -1519755434544,
+            "modified"    : 1519902863522,
+            "name"        : "/post",
+            "parentId"    : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
+            "_type"       : "request_group"
+        },
         {
-          "id"    : "pair_8c5c748fed9a45c481c945ea93336e4e",
-          "name"  : "Content-Type",
-          "value" : "application/json"
-        }
-      ],
-      "metaSortKey"                     : -1519906115110,
-      "method"                          : "PUT",
-      "modified"                        : 1519910232206,
-      "name"                            : "Update thread",
-      "parameters"                      : [],
-      "parentId"                        : "fld_24ab7e3fde174bb4990ca2f97559c89f",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/thread/1",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_f67ea4ffb0d146eabad52b3c83c55a3e",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "{{ api_token_admin  }}",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {},
-      "created"                         : 1519910249244,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519906115060,
-      "method"                          : "DELETE",
-      "modified"                        : 1519910311619,
-      "name"                            : "Delete thread",
-      "parameters"                      : [],
-      "parentId"                        : "fld_24ab7e3fde174bb4990ca2f97559c89f",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/thread/1",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_cd719e85e7764e89a89c432b62d0f5a4",
-      "authentication"                  : {},
-      "body"                            : {},
-      "created"                         : 1519910321741,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519910321741,
-      "method"                          : "GET",
-      "modified"                        : 1519910332857,
-      "name"                            : "Get posts",
-      "parameters"                      : [],
-      "parentId"                        : "fld_959a5bb6d5c247fb9530614daef18ee8",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/post",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_d86168d2279f471bbb4bd337347e4e30",
-      "authentication"                  : {},
-      "body"                            : {},
-      "created"                         : 1519910345525,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519910321691,
-      "method"                          : "GET",
-      "modified"                        : 1519910355028,
-      "name"                            : "Get post by id",
-      "parameters"                      : [],
-      "parentId"                        : "fld_959a5bb6d5c247fb9530614daef18ee8",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/post/1",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_cf626719c25a4070bf3afef59aa1df5b",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "{{ api_token_admin  }}",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {
-        "mimeType" : "application/json",
-        "text"     : "{\n\t\"content\" : \"This is some fucking awesome post content, so you'd better get HYPED!\",\n\t\"thread_id\" : 1\n}"
-      },
-      "created"                         : 1519910367112,
-      "description"                     : "",
-      "headers"                         : [
+            "_id"                             : "req_ea675053ce054c5ea21e2ee792f24a84",
+            "authentication"                  : {},
+            "body"                            : {},
+            "created"                         : 1519211642667,
+            "description"                     : "",
+            "headers"                         : [
+                {
+                    "id"    : "pair_4c7cbd053ed04e91a0e175f8aee9a3ad",
+                    "name"  : "Accept",
+                    "value" : "application/json"
+                },
+                {
+                    "id"    : "pair_597cc9a25fb444e281f7cc94ec5bd6dd",
+                    "name"  : "Content-Type",
+                    "value" : "application/json"
+                }
+            ],
+            "metaSortKey"                     : -1519829134950.5,
+            "method"                          : "GET",
+            "modified"                        : 1519933890084,
+            "name"                            : "Lumen Version",
+            "parameters"                      : [],
+            "parentId"                        : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url }}/",
+            "_type"                           : "request"
+        },
         {
-          "id"    : "pair_84ac93cdadc94f988d37ab69117fe5db",
-          "name"  : "Content-Type",
-          "value" : "application/json"
-        }
-      ],
-      "metaSortKey"                     : -1519910321641,
-      "method"                          : "POST",
-      "modified"                        : 1519910866082,
-      "name"                            : "Add post",
-      "parameters"                      : [],
-      "parentId"                        : "fld_959a5bb6d5c247fb9530614daef18ee8",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/post",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_fb869e36d4c044fcb1ba9bff07663819",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "{{ api_token_admin  }}",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {
-        "mimeType" : "application/json",
-        "text"     : "{\n\t\"content\": \"This is some fucking awesome post content.\"\n}"
-      },
-      "created"                         : 1519910421886,
-      "description"                     : "",
-      "headers"                         : [
+            "_id"                             : "req_b545bde7a85f46f8a78d8aa50d7365e4",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "VLBllNoR6jmcd3dgoL0OCx4iw0aYIXNHMBc2Zf4nexjncI5zAJIsNT3si3j2sW27",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {},
+            "created"                         : 1519903410373,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519903410373,
+            "method"                          : "GET",
+            "modified"                        : 1519903571922,
+            "name"                            : "Auth test",
+            "parameters"                      : [],
+            "parentId"                        : "wrk_c6d2fd466791491aaeb6ad5225a01f11",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/auth",
+            "_type"                           : "request"
+        },
         {
-          "id"    : "pair_e1d3b31a12e645a598c449a2a3826eef",
-          "name"  : "Content-Type",
-          "value" : "application/json"
+            "_id"       : "env_8eecef5b54104a96be7ed6a89f086cde",
+            "color"     : "#4d36a8",
+            "created"   : 1519211660852,
+            "data"      : {
+                "api_token_admin" : "",
+                "api_token_user"  : "",
+                "api_url"         : "http://localhost:8080",
+                "api_version"     : "v1"
+            },
+            "isPrivate" : false,
+            "modified"  : 1519947371987,
+            "name"      : "Local testing",
+            "parentId"  : "env_6b9a6e7de7c04275bfeefcb780ae969e",
+            "_type"     : "environment"
+        },
+        {
+            "_id"                             : "req_c1297143eaae4deca2db962d170ac14c",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {
+                "mimeType" : "application/json",
+                "text"     : "{\n\t\"username\" : \"user\",\n\t\"password\" : \"user\"\n}"
+            },
+            "created"                         : 1519754031679,
+            "description"                     : "",
+            "headers"                         : [
+                {
+                    "id"    : "pair_dc63cb2d8875458e860446b07724dc84",
+                    "name"  : "Content-Type",
+                    "value" : "application/json"
+                }
+            ],
+            "metaSortKey"                     : -1519755420961.75,
+            "method"                          : "POST",
+            "modified"                        : 1519927126715,
+            "name"                            : "Create user",
+            "parameters"                      : [],
+            "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/user",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_c2abd13354794e4d98f61a7de2d2d938",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "admin",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {},
+            "created"                         : 1519754842346,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519755420986.75,
+            "method"                          : "GET",
+            "modified"                        : 1520005118398,
+            "name"                            : "Get user by id",
+            "parameters"                      : [],
+            "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/v1/user/1",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_e837df0237624f1f9e602fecf3984e45",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "lZNzzAZdXkpMJQYdbdJMmZccxiDOmuoCTYA3unWl5BL5qgSz6wMOYK7bA6I4VYqP",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {
+                "mimeType" : "application/json",
+                "text"     : "{\n\t\"password\" : \"admin\"\n}"
+            },
+            "created"                         : 1519754876008,
+            "description"                     : "",
+            "headers"                         : [
+                {
+                    "id"    : "pair_bdf7f4a912b14c4d8eaff1ccfc150f0a",
+                    "name"  : "Content-Type",
+                    "value" : "application/json"
+                }
+            ],
+            "metaSortKey"                     : -1519755420936.75,
+            "method"                          : "PUT",
+            "modified"                        : 1519942121204,
+            "name"                            : "Update user",
+            "parameters"                      : [],
+            "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/user/1",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_26860c6d14364805b5f3f0c5d6fc138c",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "admin",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {},
+            "created"                         : 1519755380065,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519755421036.75,
+            "method"                          : "GET",
+            "modified"                        : 1519769772352,
+            "name"                            : "Get users",
+            "parameters"                      : [],
+            "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/user",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_dc61efa6da994de9b96f703b6e1f5971",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "{{ api_token_admin  }}",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {},
+            "created"                         : 1519755465806,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519755420886.75,
+            "method"                          : "DELETE",
+            "modified"                        : 1519904622172,
+            "name"                            : "Delete user",
+            "parameters"                      : [],
+            "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/user/1",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_0c536785f7094bef87c207be5b118b04",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "{{ api_token_admin  }}",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {},
+            "created"                         : 1519771099802,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519771099802,
+            "method"                          : "GET",
+            "modified"                        : 1519904640030,
+            "name"                            : "Authed user",
+            "parameters"                      : [],
+            "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/user/current",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_e0db304e341d43c791f81a973f27fdbc",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "admin",
+                "type"     : "basic",
+                "username" : "admin"
+            },
+            "body"                            : {},
+            "created"                         : 1519772826537,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519772826537,
+            "method"                          : "GET",
+            "modified"                        : 1519902898976,
+            "name"                            : "Get user Token by credentials",
+            "parameters"                      : [],
+            "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/user/token",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_6ae29b2511d940c8ad327c620004b48f",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "user",
+                "type"     : "basic",
+                "username" : "user"
+            },
+            "body"                            : {},
+            "created"                         : 1519902970941,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519771963169.5,
+            "method"                          : "PUT",
+            "modified"                        : 1520005149372,
+            "name"                            : "Update Token with credentials",
+            "parameters"                      : [],
+            "parentId"                        : "fld_8e4648d3b94a4c74a411a4fa150665ff",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/user/token",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_8e2127290f9a4619adee1c028270b8fc",
+            "authentication"                  : {},
+            "body"                            : {},
+            "created"                         : 1519903631533,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519903631533,
+            "method"                          : "GET",
+            "modified"                        : 1519907923638,
+            "name"                            : "Get boards",
+            "parameters"                      : [],
+            "parentId"                        : "fld_0fb971eeccb343aa896c8af355b5f833",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/board",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_625dc4e394d249c78a2a8e456a52077e",
+            "authentication"                  : {},
+            "body"                            : {},
+            "created"                         : 1519903671458,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519903520953,
+            "method"                          : "GET",
+            "modified"                        : 1519903685602,
+            "name"                            : "Get board by id",
+            "parameters"                      : [],
+            "parentId"                        : "fld_0fb971eeccb343aa896c8af355b5f833",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/board/1",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_9752b9eff78a406fb75d42cf5d4762db",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "{{ api_token_admin  }}",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {
+                "mimeType" : "application/json",
+                "text"     : "{\n    \"title\" : \"Test board 2\",\n\t\"description\" : \"Just an API-created test\"\n}"
+            },
+            "created"                         : 1519903742489,
+            "description"                     : "",
+            "headers"                         : [
+                {
+                    "id"    : "pair_9e3c379a38a14ee1932afc3cebd47ad2",
+                    "name"  : "Content-Type",
+                    "value" : "application/json"
+                }
+            ],
+            "metaSortKey"                     : -1519903520903,
+            "method"                          : "POST",
+            "modified"                        : 1519923609353,
+            "name"                            : "Add board",
+            "parameters"                      : [],
+            "parentId"                        : "fld_0fb971eeccb343aa896c8af355b5f833",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/board",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_1aa9944c67ba46fc86b324f19b2a84e6",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "{{ api_token_admin  }}",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {
+                "mimeType" : "application/json",
+                "text"     : "{\n    \"title\" : \"Test board!\",\n\t\"description\" : \"Just an API-created test\"\n}"
+            },
+            "created"                         : 1519906667257,
+            "description"                     : "",
+            "headers"                         : [
+                {
+                    "id"    : "pair_48d5aa030fb148de85cd3f8c9d336284",
+                    "name"  : "Content-Type",
+                    "value" : "application/json"
+                }
+            ],
+            "metaSortKey"                     : -1519903520878,
+            "method"                          : "PUT",
+            "modified"                        : 1519907221197,
+            "name"                            : "Update board",
+            "parameters"                      : [],
+            "parentId"                        : "fld_0fb971eeccb343aa896c8af355b5f833",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/board/2",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_20ae558edd60467e9a5491bbc130be58",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "{{ api_token_admin  }}",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {},
+            "created"                         : 1519907158320,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519903520853,
+            "method"                          : "DELETE",
+            "modified"                        : 1519907187480,
+            "name"                            : "Delete board",
+            "parameters"                      : [],
+            "parentId"                        : "fld_0fb971eeccb343aa896c8af355b5f833",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/board/1",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_96412369770442158915f06833cd871e",
+            "authentication"                  : {},
+            "body"                            : {},
+            "created"                         : 1519908598887,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519908598887,
+            "method"                          : "GET",
+            "modified"                        : 1519908615609,
+            "name"                            : "Get threads",
+            "parameters"                      : [],
+            "parentId"                        : "fld_24ab7e3fde174bb4990ca2f97559c89f",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/thread",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_c19c41d37ab649caa6f13b7386322fbc",
+            "authentication"                  : {},
+            "body"                            : {},
+            "created"                         : 1519908617614,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519906115210,
+            "method"                          : "GET",
+            "modified"                        : 1519908625090,
+            "name"                            : "Get thread by id",
+            "parameters"                      : [],
+            "parentId"                        : "fld_24ab7e3fde174bb4990ca2f97559c89f",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/thread/1",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_d82527a8638f4eddb3dec3410b24bf00",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "{{ api_token_admin  }}",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {
+                "mimeType" : "application/json",
+                "text"     : "{\n\t\"title\" : \"thread title\",\n\t\"board_id\" : 2\n}"
+            },
+            "created"                         : 1519908640749,
+            "description"                     : "",
+            "headers"                         : [
+                {
+                    "id"    : "pair_91206dfc3bdb4979b3c25ee0bd0f8043",
+                    "name"  : "Content-Type",
+                    "value" : "application/json"
+                }
+            ],
+            "metaSortKey"                     : -1519906115160,
+            "method"                          : "POST",
+            "modified"                        : 1519910560925,
+            "name"                            : "Add thread",
+            "parameters"                      : [],
+            "parentId"                        : "fld_24ab7e3fde174bb4990ca2f97559c89f",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/thread",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_c19a6aebff114ecc8cb8c82d82597978",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "{{ api_token_admin  }}",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {
+                "mimeType" : "application/json",
+                "text"     : "{\n\t\"title\" : \"thread title\",\n\t\"board_id\" : 2\n}"
+            },
+            "created"                         : 1519910200212,
+            "description"                     : "",
+            "headers"                         : [
+                {
+                    "id"    : "pair_8c5c748fed9a45c481c945ea93336e4e",
+                    "name"  : "Content-Type",
+                    "value" : "application/json"
+                }
+            ],
+            "metaSortKey"                     : -1519906115110,
+            "method"                          : "PUT",
+            "modified"                        : 1519910232206,
+            "name"                            : "Update thread",
+            "parameters"                      : [],
+            "parentId"                        : "fld_24ab7e3fde174bb4990ca2f97559c89f",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/thread/1",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_f67ea4ffb0d146eabad52b3c83c55a3e",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "{{ api_token_admin  }}",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {},
+            "created"                         : 1519910249244,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519906115060,
+            "method"                          : "DELETE",
+            "modified"                        : 1519910311619,
+            "name"                            : "Delete thread",
+            "parameters"                      : [],
+            "parentId"                        : "fld_24ab7e3fde174bb4990ca2f97559c89f",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/thread/1",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_cd719e85e7764e89a89c432b62d0f5a4",
+            "authentication"                  : {},
+            "body"                            : {},
+            "created"                         : 1519910321741,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519910321741,
+            "method"                          : "GET",
+            "modified"                        : 1519910332857,
+            "name"                            : "Get posts",
+            "parameters"                      : [],
+            "parentId"                        : "fld_959a5bb6d5c247fb9530614daef18ee8",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/post",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_d86168d2279f471bbb4bd337347e4e30",
+            "authentication"                  : {},
+            "body"                            : {},
+            "created"                         : 1519910345525,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519910321691,
+            "method"                          : "GET",
+            "modified"                        : 1519910355028,
+            "name"                            : "Get post by id",
+            "parameters"                      : [],
+            "parentId"                        : "fld_959a5bb6d5c247fb9530614daef18ee8",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/post/1",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_cf626719c25a4070bf3afef59aa1df5b",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "{{ api_token_admin  }}",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {
+                "mimeType" : "application/json",
+                "text"     : "{\n\t\"content\" : \"This is some fucking awesome post content, so you'd better get HYPED!\",\n\t\"thread_id\" : 1\n}"
+            },
+            "created"                         : 1519910367112,
+            "description"                     : "",
+            "headers"                         : [
+                {
+                    "id"    : "pair_84ac93cdadc94f988d37ab69117fe5db",
+                    "name"  : "Content-Type",
+                    "value" : "application/json"
+                }
+            ],
+            "metaSortKey"                     : -1519910321641,
+            "method"                          : "POST",
+            "modified"                        : 1519910866082,
+            "name"                            : "Add post",
+            "parameters"                      : [],
+            "parentId"                        : "fld_959a5bb6d5c247fb9530614daef18ee8",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/post",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_fb869e36d4c044fcb1ba9bff07663819",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "{{ api_token_admin  }}",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {
+                "mimeType" : "application/json",
+                "text"     : "{\n\t\"content\": \"This is some fucking awesome post content.\"\n}"
+            },
+            "created"                         : 1519910421886,
+            "description"                     : "",
+            "headers"                         : [
+                {
+                    "id"    : "pair_e1d3b31a12e645a598c449a2a3826eef",
+                    "name"  : "Content-Type",
+                    "value" : "application/json"
+                }
+            ],
+            "metaSortKey"                     : -1519910321591,
+            "method"                          : "PUT",
+            "modified"                        : 1519928834980,
+            "name"                            : "Update post",
+            "parameters"                      : [],
+            "parentId"                        : "fld_959a5bb6d5c247fb9530614daef18ee8",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/post/1",
+            "_type"                           : "request"
+        },
+        {
+            "_id"                             : "req_26db874c8d7f4f60bd5d35ca30fbd2d5",
+            "authentication"                  : {
+                "disabled" : false,
+                "password" : "{{ api_token_admin  }}",
+                "type"     : "basic",
+                "username" : ""
+            },
+            "body"                            : {},
+            "created"                         : 1519910477628,
+            "description"                     : "",
+            "headers"                         : [],
+            "metaSortKey"                     : -1519910321541,
+            "method"                          : "DELETE",
+            "modified"                        : 1519910494710,
+            "name"                            : "Delete post",
+            "parameters"                      : [],
+            "parentId"                        : "fld_959a5bb6d5c247fb9530614daef18ee8",
+            "settingDisableRenderRequestBody" : false,
+            "settingEncodeUrl"                : true,
+            "settingSendCookies"              : true,
+            "settingStoreCookies"             : true,
+            "url"                             : "{{ api_url  }}/{{ api_version  }}/post/1",
+            "_type"                           : "request"
         }
-      ],
-      "metaSortKey"                     : -1519910321591,
-      "method"                          : "PUT",
-      "modified"                        : 1519928834980,
-      "name"                            : "Update post",
-      "parameters"                      : [],
-      "parentId"                        : "fld_959a5bb6d5c247fb9530614daef18ee8",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/post/1",
-      "_type"                           : "request"
-    },
-    {
-      "_id"                             : "req_26db874c8d7f4f60bd5d35ca30fbd2d5",
-      "authentication"                  : {
-        "disabled" : false,
-        "password" : "{{ api_token_admin  }}",
-        "type"     : "basic",
-        "username" : ""
-      },
-      "body"                            : {},
-      "created"                         : 1519910477628,
-      "description"                     : "",
-      "headers"                         : [],
-      "metaSortKey"                     : -1519910321541,
-      "method"                          : "DELETE",
-      "modified"                        : 1519910494710,
-      "name"                            : "Delete post",
-      "parameters"                      : [],
-      "parentId"                        : "fld_959a5bb6d5c247fb9530614daef18ee8",
-      "settingDisableRenderRequestBody" : false,
-      "settingEncodeUrl"                : true,
-      "settingSendCookies"              : true,
-      "settingStoreCookies"             : true,
-      "url"                             : "{{ api_url  }}/{{ api_version  }}/post/1",
-      "_type"                           : "request"
-    }
-  ]
+    ]
 }
