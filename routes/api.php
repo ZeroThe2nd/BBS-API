@@ -23,6 +23,6 @@ $router->group([
     });
 
     $router->get('/ping', function () {
-        return json('pong', 200);
+        return response()->json('pong', 200);
     });
 });
