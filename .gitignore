@@ -4,4 +4,4 @@ Homestead.json
 Homestead.yaml
 .env
 notes.txt
-/database/local0.db
+/database/local.db
