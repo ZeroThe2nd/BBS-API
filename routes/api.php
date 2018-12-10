@@ -21,4 +21,8 @@ $router->group([
     $router->get('/', function () use ($router) {
         return $router->app->version();
     });
+
+    $router->get('/ping', function () {
+        return json('pong', 200);
+    });
 });
