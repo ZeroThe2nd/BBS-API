@@ -1,75 +1,38 @@
-<?php namespace App;
+<?php
 
-use Illuminate\Database\Eloquent\Model;
-use \Illuminate\Database\Eloquent\SoftDeletes;
+namespace App;
 
-/**
- * @property int            $id
- * @property string         $username
- * @property string         $password
- * @property string         api_token
- * @property bool           $is_admin
- * @property mixed          $posts
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * @property \Carbon\Carbon $deleted_at
- */
-class User extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
 {
-
-    use SoftDeletes;
+    use Notifiable;
 
     /**
+     * The attributes that are mass assignable.
+     *
      * @var array
      */
     protected $fillable = [
-        'username',
-        'password',
-        'avatar',
-    ];
-
-    /** @var array */
-    protected $hidden = [
-        'password',
-        'api_token',
-    ];
-
-    /** @var array */
-    protected $dates = [];
-
-    /** @var array */
-    public static $rules = [
-        "username" => "required|string|filled|unique:users,username",
-        "password" => "required|string|filled",
-    ];
-
-    protected $casts = [
-        'is_admin' => 'boolean',
+        'name', 'email', 'password',
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function boards()
-    {
-        return $this->hasMany("App\Board");
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function threads()
-    {
-        return $this->hasMany("App\Thread");
-    }
-
-    /**
-     * Get posts by user
+     * The attributes that should be hidden for arrays.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @var array
      */
-    public function posts()
-    {
-        return $this->hasMany("App\Post");
-    }
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }
